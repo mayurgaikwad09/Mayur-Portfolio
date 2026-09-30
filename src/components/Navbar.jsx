@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
-import { Menu, X, FileDown, LayoutGrid } from "lucide-react";
+import { Menu, X, FileDown } from "lucide-react";
 import { portfolioData } from "../data/portfolioData";
 
 export default function Navbar() {
@@ -86,8 +86,10 @@ export default function Navbar() {
             className="flex items-center space-x-2.5 sm:space-x-3 group focus:outline-none rounded-xl p-1 touch-target min-h-[44px]"
             aria-label="Mayur Gaikwad Portfolio Home"
           >
-            <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-gradient-to-br from-purple-500/20 via-cyan-500/20 to-blue-600/20 border border-purple-500/30 flex items-center justify-center text-purple-300 group-hover:border-purple-400 group-hover:shadow-[0_0_20px_rgba(168,85,247,0.4)] transition-all duration-300">
-              <LayoutGrid className="w-4 h-4 sm:w-5 sm:h-5 text-purple-400 group-hover:rotate-45 transition-transform duration-300" />
+            <div className="w-[30px] h-[30px] sm:w-[32px] sm:h-[32px] rounded-lg sm:rounded-xl bg-slate-900/90 border border-purple-500/30 flex items-center justify-center group-hover:border-purple-400 group-hover:shadow-[0_0_15px_rgba(168,85,247,0.4)] transition-all duration-300 shrink-0 select-none">
+              <span className="font-mono font-extrabold text-xs sm:text-sm tracking-tighter text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-indigo-300 to-cyan-400">
+                MG
+              </span>
             </div>
             <div className="flex flex-col text-left">
               <span className="text-base sm:text-lg font-bold tracking-tight text-white group-hover:text-purple-300 transition-colors font-mono">

@@ -1,5 +1,5 @@
 import React from "react";
-import { ArrowUp, LayoutGrid } from "lucide-react";
+import { ArrowUp } from "lucide-react";
 import { GithubIcon, LinkedinIcon, LeetCodeIcon } from "./SocialIcons";
 import { portfolioData } from "../data/portfolioData";
 
@@ -17,7 +17,9 @@ export default function Footer() {
           {/* Copyright & Info */}
           <div className="flex flex-col items-center md:items-start text-center md:text-left">
             <div className="flex items-center space-x-2">
-              <LayoutGrid className="w-4 h-4 text-purple-400" />
+              <div className="w-6 h-6 rounded-lg bg-slate-900 border border-purple-500/30 flex items-center justify-center font-mono font-black text-[10px] text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-cyan-400 select-none">
+                MG
+              </div>
               <span className="text-base font-bold text-white tracking-tight font-mono">
                 Mayur Gaikwad
               </span>
