@@ -28,10 +28,10 @@ export default function Experience() {
   };
 
   return (
-    <section id="experience" className="py-20 relative bg-[#070a13]">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="experience" className="py-8 md:py-20 relative bg-[#070a13] overflow-hidden w-full max-w-full">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full min-w-0">
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16">
+        <div className="text-center max-w-3xl mx-auto mb-8 md:mb-16">
           <div className="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-purple-500/10 border border-purple-500/30 text-purple-300 text-xs font-mono font-semibold uppercase tracking-wider mb-3">
             <Briefcase className="w-3.5 h-3.5" />
             <span>Professional Internship Career</span>
@@ -45,7 +45,7 @@ export default function Experience() {
         </div>
 
         {/* Experience Bento Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 max-w-6xl mx-auto">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 sm:gap-6 max-w-6xl mx-auto">
           {experience.map((item, idx) => {
             const isExpanded = expandedItems[item.id];
             // Give the first card a slightly wider span (e.g. 12 cols or 6 cols depending on grid)
@@ -58,7 +58,7 @@ export default function Experience() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: idx * 0.1 }}
-                className={`${colSpan} bento-card bento-card-hover p-6 sm:p-7 bg-slate-900/80 border border-white/10 flex flex-col justify-between text-left group overflow-hidden`}
+                className={`${colSpan} bento-card bento-card-hover p-4 sm:p-7 bg-slate-900/80 border border-white/10 flex flex-col justify-between text-left group overflow-hidden`}
               >
                 <div>
                   {/* Card Top Meta */}
@@ -66,29 +66,29 @@ export default function Experience() {
                     onClick={() => toggleExpand(item.id)}
                     className="cursor-pointer flex items-start justify-between select-none pb-4 border-b border-white/10"
                   >
-                    <div className="space-y-1">
+                    <div className="space-y-1.5 min-w-0 flex-1 pr-2">
                       <div className="flex flex-wrap items-center gap-2 mb-1">
-                        <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-mono bg-purple-500/10 text-purple-300 border border-purple-500/30">
-                          <Calendar className="w-3 h-3 mr-1.5 text-purple-400" />
-                          {item.period}
+                        <span className="inline-flex items-center px-2.5 sm:px-3 py-1 rounded-full text-[11px] sm:text-xs font-mono bg-purple-500/10 text-purple-300 border border-purple-500/30">
+                          <Calendar className="w-3 h-3 mr-1.5 text-purple-400 shrink-0" />
+                          <span>{item.period}</span>
                         </span>
                         <span className="text-[10px] font-mono text-cyan-400/90 bg-cyan-500/10 px-2.5 py-0.5 rounded-full border border-cyan-500/20">
                           Internship
                         </span>
                       </div>
-                      <h3 className="text-xl sm:text-2xl font-bold text-white tracking-tight group-hover:text-purple-300 transition-colors">
+                      <h3 className="text-lg sm:text-2xl font-bold text-white tracking-tight group-hover:text-purple-300 transition-colors">
                         {item.title}
                       </h3>
-                      <div className="flex items-center text-slate-300 text-sm font-medium">
-                        <Building2 className="w-4 h-4 mr-1.5 text-cyan-400" />
-                        <span>{item.company}</span>
+                      <div className="flex items-center text-slate-300 text-xs sm:text-sm font-medium">
+                        <Building2 className="w-4 h-4 mr-1.5 text-cyan-400 shrink-0" />
+                        <span className="truncate">{item.company}</span>
                       </div>
                     </div>
 
                     <button
                       type="button"
-                      className="p-2 rounded-xl bg-slate-950/80 text-slate-300 hover:text-purple-300 border border-slate-800 transition-colors"
-                      aria-label="Toggle details"
+                      className="p-2.5 min-w-[44px] min-h-[44px] flex items-center justify-center rounded-xl bg-slate-950/80 text-slate-300 hover:text-purple-300 border border-slate-800 transition-colors shrink-0"
+                      aria-label={isExpanded ? "Collapse details" : "Expand details"}
                     >
                       {isExpanded ? (
                         <ChevronUp className="w-5 h-5" />

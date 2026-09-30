@@ -7,10 +7,10 @@ export default function Certifications() {
   const { certifications, currentlyExploring } = portfolioData;
 
   return (
-    <section id="certifications" className="py-20 relative bg-[#070a13]">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="certifications" className="py-8 md:py-20 relative bg-[#070a13] overflow-hidden w-full max-w-full">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full min-w-0">
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16">
+        <div className="text-center max-w-3xl mx-auto mb-8 md:mb-16">
           <div className="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-purple-500/10 border border-purple-500/30 text-purple-300 text-xs font-mono font-semibold uppercase tracking-wider mb-3">
             <Award className="w-3.5 h-3.5" />
             <span>Continuous Upskilling & R&D</span>
@@ -23,7 +23,7 @@ export default function Certifications() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 max-w-6xl mx-auto items-stretch">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 sm:gap-6 max-w-6xl mx-auto items-stretch">
           {/* Certifications Card Column */}
           <motion.div
             initial={{ opacity: 0, x: -20 }}
@@ -32,7 +32,7 @@ export default function Certifications() {
             transition={{ duration: 0.5 }}
             className="lg:col-span-7 flex"
           >
-            <div className="bento-card bento-card-hover p-6 sm:p-8 flex-1 flex flex-col justify-between bg-slate-900/80 border border-white/10 text-left">
+            <div className="bento-card bento-card-hover p-5 sm:p-8 flex-1 flex flex-col justify-between bg-slate-900/80 border border-white/10 text-left">
               <div>
                 <div className="flex items-center space-x-3 mb-6">
                   <div className="p-3 rounded-2xl bg-amber-500/10 border border-amber-500/30 text-amber-300">
@@ -101,7 +101,7 @@ export default function Certifications() {
             transition={{ duration: 0.5, delay: 0.1 }}
             className="lg:col-span-5 flex"
           >
-            <div className="bento-card bento-card-purple p-6 sm:p-8 flex-1 flex flex-col justify-between text-left relative overflow-hidden bg-gradient-to-br from-slate-900 via-slate-900 to-purple-950/30">
+            <div className="bento-card bento-card-purple p-5 sm:p-8 flex-1 flex flex-col justify-between text-left relative overflow-hidden bg-gradient-to-br from-slate-900 via-slate-900 to-purple-950/30">
               <div>
                 <div className="flex items-center space-x-3 mb-6">
                   <div className="p-3 rounded-2xl bg-purple-500/20 border border-purple-500/40 text-purple-300 shadow-[0_0_15px_rgba(168,85,247,0.25)]">

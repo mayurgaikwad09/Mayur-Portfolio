@@ -25,10 +25,10 @@ export default function About() {
   };
 
   return (
-    <section id="about" className="py-20 relative bg-[#070a13]">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="about" className="py-8 md:py-20 relative bg-[#070a13] overflow-hidden w-full max-w-full">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full min-w-0">
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16">
+        <div className="text-center max-w-3xl mx-auto mb-8 md:mb-16">
           <div className="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-purple-500/10 border border-purple-500/30 text-purple-300 text-xs font-mono font-semibold uppercase tracking-wider mb-3">
             <User className="w-3.5 h-3.5" />
             <span>Developer Profile</span>
@@ -42,7 +42,7 @@ export default function About() {
         </div>
 
         {/* Content Bento Layout */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 sm:gap-6 items-stretch">
           {/* Left: Bio & Currently Focused On Bento Card */}
           <motion.div
             initial={{ opacity: 0, x: -20 }}

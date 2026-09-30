@@ -1,11 +1,12 @@
-import React, { useState, useEffect } from "react";
-import { Menu, X, FileDown, LayoutGrid, Terminal } from "lucide-react";
+import React, { useState, useEffect, useRef } from "react";
+import { Menu, X, FileDown, LayoutGrid } from "lucide-react";
 import { portfolioData } from "../data/portfolioData";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("home");
   const [scrolled, setScrolled] = useState(false);
+  const navRef = useRef(null);
 
   const navLinks = [
     { name: "Home", href: "#home" },
@@ -41,6 +42,23 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  // Handle click outside to close mobile menu
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (navRef.current && !navRef.current.contains(event.target)) {
+        setIsOpen(false);
+      }
+    };
+    if (isOpen) {
+      document.addEventListener("mousedown", handleClickOutside);
+      document.addEventListener("touchstart", handleClickOutside);
+    }
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+      document.removeEventListener("touchstart", handleClickOutside);
+    };
+  }, [isOpen]);
+
   const handleNavClick = (href) => {
     setIsOpen(false);
     const element = document.querySelector(href);
@@ -51,8 +69,9 @@ export default function Navbar() {
 
   return (
     <header
+      ref={navRef}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled ? "py-3 bento-nav shadow-2xl shadow-black/60" : "py-5 bg-transparent"
+        scrolled ? "py-2.5 sm:py-3 bento-nav shadow-2xl shadow-black/60" : "py-4 sm:py-5 bg-transparent"
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -64,17 +83,17 @@ export default function Navbar() {
               e.preventDefault();
               handleNavClick("#home");
             }}
-            className="flex items-center space-x-3 group focus:outline-none rounded-xl p-1"
+            className="flex items-center space-x-2.5 sm:space-x-3 group focus:outline-none rounded-xl p-1 touch-target min-h-[44px]"
             aria-label="Mayur Gaikwad Portfolio Home"
           >
-            <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-purple-500/20 via-cyan-500/20 to-blue-600/20 border border-purple-500/30 flex items-center justify-center text-purple-300 group-hover:border-purple-400 group-hover:shadow-[0_0_20px_rgba(168,85,247,0.4)] transition-all duration-300">
-              <LayoutGrid className="w-5 h-5 text-purple-400 group-hover:rotate-45 transition-transform duration-300" />
+            <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-gradient-to-br from-purple-500/20 via-cyan-500/20 to-blue-600/20 border border-purple-500/30 flex items-center justify-center text-purple-300 group-hover:border-purple-400 group-hover:shadow-[0_0_20px_rgba(168,85,247,0.4)] transition-all duration-300">
+              <LayoutGrid className="w-4 h-4 sm:w-5 sm:h-5 text-purple-400 group-hover:rotate-45 transition-transform duration-300" />
             </div>
             <div className="flex flex-col text-left">
               <span className="text-base sm:text-lg font-bold tracking-tight text-white group-hover:text-purple-300 transition-colors font-mono">
-                &lt;Mayur.G /&gt;
+                Mayur Gaikwad
               </span>
-              <span className="text-[10px] font-mono text-cyan-400 tracking-widest uppercase -mt-1">
+              <span className="text-[9px] sm:text-[10px] font-mono text-cyan-400 tracking-widest uppercase -mt-0.5">
                 Developer Dashboard
               </span>
             </div>
@@ -111,7 +130,7 @@ export default function Navbar() {
               download="Mayur_Gaikwad_Resume.pdf"
               target="_blank"
               rel="noopener noreferrer"
-              className="relative inline-flex items-center justify-center px-4.5 py-2 text-xs font-bold text-white bg-gradient-to-r from-purple-600 via-indigo-600 to-cyan-500 rounded-xl hover:from-purple-500 hover:to-cyan-400 transition-all duration-300 shadow-lg shadow-purple-500/25 hover:shadow-purple-500/40 hover:scale-[1.03] focus:outline-none focus:ring-2 focus:ring-purple-500/50"
+              className="relative inline-flex items-center justify-center px-4.5 py-2.5 text-xs font-bold text-white bg-gradient-to-r from-purple-600 via-indigo-600 to-cyan-500 rounded-xl hover:from-purple-500 hover:to-cyan-400 transition-all duration-300 shadow-lg shadow-purple-500/25 hover:shadow-purple-500/40 hover:scale-[1.03] focus:outline-none"
             >
               <FileDown className="w-4 h-4 mr-2" />
               Download Resume
@@ -123,10 +142,10 @@ export default function Navbar() {
             <button
               onClick={() => setIsOpen(!isOpen)}
               type="button"
-              className="p-2.5 rounded-xl text-slate-300 hover:text-white bg-slate-900/90 border border-slate-800 focus:outline-none focus:ring-2 focus:ring-purple-500"
+              className="p-2.5 min-w-[44px] min-h-[44px] flex items-center justify-center rounded-xl text-slate-300 hover:text-white bg-slate-900/90 border border-slate-800 focus:outline-none focus:ring-2 focus:ring-purple-500"
               aria-controls="mobile-menu"
               aria-expanded={isOpen}
-              aria-label="Toggle navigation menu"
+              aria-label={isOpen ? "Close menu" : "Open menu"}
             >
               {isOpen ? <X className="w-6 h-6 text-purple-400" /> : <Menu className="w-6 h-6 text-slate-300" />}
             </button>
@@ -138,9 +157,9 @@ export default function Navbar() {
       {isOpen && (
         <div
           id="mobile-menu"
-          className="lg:hidden bento-nav border-b border-white/10 px-4 pt-3 pb-6 space-y-2 mt-2"
+          className="lg:hidden bento-nav border-b border-white/10 px-4 pt-3 pb-6 space-y-3 mt-2 shadow-2xl animate-fadeIn"
         >
-          <div className="flex flex-col space-y-1 pt-2">
+          <div className="flex flex-col space-y-1 pt-1">
             {navLinks.map((link) => {
               const isActive = activeSection === link.href.substring(1);
               return (
@@ -151,7 +170,7 @@ export default function Navbar() {
                     e.preventDefault();
                     handleNavClick(link.href);
                   }}
-                  className={`px-4 py-2.5 rounded-xl text-sm font-medium transition-colors ${
+                  className={`px-4 py-3 min-h-[44px] flex items-center rounded-xl text-sm font-medium transition-colors ${
                     isActive
                       ? "text-purple-300 bg-purple-500/20 border-l-4 border-purple-400 font-semibold"
                       : "text-slate-300 hover:text-white hover:bg-slate-800/60"
@@ -163,13 +182,13 @@ export default function Navbar() {
             })}
           </div>
 
-          <div className="pt-4 border-t border-slate-800">
+          <div className="pt-3 border-t border-slate-800">
             <a
               href={portfolioData.personal.resumeUrl}
               download="Mayur_Gaikwad_Resume.pdf"
               target="_blank"
               rel="noopener noreferrer"
-              className="w-full flex items-center justify-center px-4 py-3 text-sm font-bold text-white bg-gradient-to-r from-purple-600 to-cyan-500 rounded-xl shadow-lg shadow-purple-500/25"
+              className="w-full min-h-[44px] flex items-center justify-center px-4 py-3 text-sm font-bold text-white bg-gradient-to-r from-purple-600 to-cyan-500 rounded-xl shadow-lg shadow-purple-500/25"
             >
               <FileDown className="w-4 h-4 mr-2" />
               Download Resume
@@ -180,4 +199,5 @@ export default function Navbar() {
     </header>
   );
 }
+
 

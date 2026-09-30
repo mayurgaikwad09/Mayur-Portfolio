@@ -34,10 +34,10 @@ export default function Skills() {
   };
 
   return (
-    <section id="skills" className="py-20 relative bg-[#070a13] bg-bento-grid">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="skills" className="py-8 md:py-20 relative bg-[#070a13] bg-bento-grid overflow-hidden w-full max-w-full">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full min-w-0">
         {/* Section Title */}
-        <div className="text-center max-w-3xl mx-auto mb-16">
+        <div className="text-center max-w-3xl mx-auto mb-8 md:mb-16">
           <div className="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-purple-500/10 border border-purple-500/30 text-purple-300 text-xs font-mono font-semibold uppercase tracking-wider mb-3">
             <Layers className="w-3.5 h-3.5" />
             <span>Technical Capabilities</span>
@@ -51,7 +51,7 @@ export default function Skills() {
         </div>
 
         {/* Skills Bento Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
           {skills.map((categoryGroup, index) => {
             const IconComponent = categoryIcons[categoryGroup.category] || Code2;
             const badgeStyle =
@@ -65,7 +65,7 @@ export default function Skills() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: index * 0.08 }}
-                className="bento-card bento-card-hover p-6 flex flex-col justify-between group bg-slate-900/80 border border-white/10 text-left"
+                className="bento-card bento-card-hover p-5 sm:p-6 flex flex-col justify-between group bg-slate-900/80 border border-white/10 text-left"
               >
                 <div>
                   {/* Category Header */}

@@ -38,9 +38,9 @@ export default function CodeAndConnect() {
   ];
 
   return (
-    <section className="py-16 relative bg-[#070a13] bg-bento-grid">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center max-w-3xl mx-auto mb-12">
+    <section className="py-8 md:py-16 relative bg-[#070a13] bg-bento-grid overflow-hidden w-full max-w-full">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full min-w-0">
+        <div className="text-center max-w-3xl mx-auto mb-6 md:mb-12">
           <div className="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-purple-500/10 border border-purple-500/30 text-purple-300 text-xs font-mono font-semibold uppercase tracking-wider mb-3">
             <Globe2 className="w-3.5 h-3.5" />
             <span>Developer Ecosystem</span>
@@ -53,7 +53,7 @@ export default function CodeAndConnect() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6 max-w-6xl mx-auto">
           {profiles.map((profile, idx) => {
             const IconComponent = profile.icon;
 
@@ -67,7 +67,7 @@ export default function CodeAndConnect() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: idx * 0.1 }}
-                className={`bento-card bento-card-hover p-6 flex flex-col justify-between group bg-slate-900/80 border border-white/10 text-left ${profile.color}`}
+                className={`bento-card bento-card-hover p-5 sm:p-6 flex flex-col justify-between group bg-slate-900/80 border border-white/10 text-left ${profile.color}`}
               >
                 <div>
                   <div className="flex items-center justify-between mb-4">

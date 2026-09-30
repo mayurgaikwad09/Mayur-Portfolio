@@ -43,13 +43,13 @@ export default function Projects() {
   };
 
   return (
-    <section id="projects" className="py-20 relative bg-[#070a13] bg-purple-radial-glow">
+    <section id="projects" className="py-8 md:py-20 relative bg-[#070a13] bg-purple-radial-glow overflow-hidden w-full max-w-full">
       {/* Background ambient glow */}
-      <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-full max-w-7xl h-96 bg-purple-500/5 blur-3xl pointer-events-none -z-10" />
+      <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-full max-w-7xl h-96 bg-purple-500/5 blur-3xl pointer-events-none -z-10 max-w-full" />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full min-w-0">
         {/* Section Title */}
-        <div className="text-center max-w-3xl mx-auto mb-16">
+        <div className="text-center max-w-3xl mx-auto mb-8 md:mb-16">
           <div className="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-purple-500/10 border border-purple-500/30 text-purple-300 text-xs font-mono font-semibold uppercase tracking-wider mb-3">
             <FolderGit2 className="w-3.5 h-3.5" />
             <span>Centerpiece Software Applications</span>
@@ -63,7 +63,7 @@ export default function Projects() {
         </div>
 
         {/* Featured Projects Bento Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 sm:gap-8">
           {projects.map((project, idx) => {
             const style = projectStyles[project.id] || projectStyles["project-1"];
             const IconComponent = style.icon;
@@ -75,7 +75,7 @@ export default function Projects() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: idx * 0.12 }}
-                className={`lg:col-span-6 bento-card bento-card-hover p-6 sm:p-8 flex flex-col justify-between group text-left relative overflow-hidden bg-gradient-to-br ${style.cardGradient} ${style.borderStyle}`}
+                className={`lg:col-span-6 bento-card bento-card-hover p-5 sm:p-8 flex flex-col justify-between group text-left relative overflow-hidden bg-gradient-to-br ${style.cardGradient} ${style.borderStyle}`}
               >
                 {/* Background glow circle */}
                 <div className={`absolute -right-10 -bottom-10 w-48 h-48 ${style.glowColor} rounded-full blur-3xl pointer-events-none group-hover:scale-125 transition-transform duration-500`} />
@@ -143,13 +143,13 @@ export default function Projects() {
                 </div>
 
                 {/* Card Action Buttons */}
-                <div className="pt-6 mt-6 border-t border-slate-800/80 flex items-center space-x-3 relative z-10">
+                <div className="pt-6 mt-6 border-t border-slate-800/80 flex flex-col sm:flex-row items-stretch sm:items-center gap-3 relative z-10">
                   <button
                     onClick={() => setSelectedProject(project)}
-                    className={`flex-1 inline-flex items-center justify-center px-4 py-2.5 rounded-xl font-semibold text-xs text-white bg-gradient-to-r ${style.buttonGradient} transition-all duration-300 shadow-md shadow-purple-500/20 hover:scale-[1.02]`}
+                    className={`flex-1 inline-flex items-center justify-center px-4 py-3 rounded-xl font-semibold text-xs sm:text-sm text-white bg-gradient-to-r ${style.buttonGradient} transition-all duration-300 shadow-md shadow-purple-500/20 min-h-[44px]`}
                   >
-                    <Info className="w-4 h-4 mr-1.5" />
-                    View Details
+                    <Info className="w-4 h-4 mr-2 shrink-0" />
+                    <span>View Project Details</span>
                   </button>
 
                   {project.githubUrl && (
@@ -157,11 +157,12 @@ export default function Projects() {
                       href={project.githubUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="p-2.5 rounded-xl bg-slate-950/90 hover:bg-slate-900 text-slate-300 hover:text-white border border-slate-800 hover:border-purple-500/40 transition-colors"
-                      aria-label="View on GitHub"
+                      className="inline-flex items-center justify-center px-4 py-3 rounded-xl bg-slate-950/90 hover:bg-slate-900 text-slate-300 hover:text-white border border-slate-800 hover:border-purple-500/40 transition-colors min-h-[44px] font-mono text-xs font-semibold"
+                      aria-label="View GitHub Repository"
                       title="View GitHub repository"
                     >
-                      <GithubIcon className="w-4 h-4" />
+                      <GithubIcon className="w-4 h-4 mr-2 shrink-0" />
+                      <span>GitHub Code</span>
                     </a>
                   )}
                 </div>

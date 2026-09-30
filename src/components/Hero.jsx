@@ -46,15 +46,15 @@ export default function Hero() {
   return (
     <section
       id="home"
-      className="relative min-h-screen pt-28 pb-16 lg:pt-32 lg:pb-20 flex items-center justify-center overflow-hidden bg-bento-grid bg-purple-radial-glow"
+      className="relative min-h-0 lg:min-h-screen pt-20 pb-6 lg:pt-32 lg:pb-20 flex items-center justify-center overflow-hidden bg-bento-grid bg-purple-radial-glow"
     >
       {/* Background ambient glowing spheres */}
-      <div className="absolute top-1/4 left-1/6 w-96 h-96 bg-purple-600/10 rounded-full blur-3xl pointer-events-none -z-10" />
-      <div className="absolute bottom-1/4 right-1/6 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl pointer-events-none -z-10" />
+      <div className="absolute top-1/4 left-0 w-72 sm:w-96 h-72 sm:h-96 bg-purple-600/10 rounded-full blur-3xl pointer-events-none -z-10 max-w-full" />
+      <div className="absolute bottom-1/4 right-0 w-72 sm:w-96 h-72 sm:h-96 bg-cyan-500/10 rounded-full blur-3xl pointer-events-none -z-10 max-w-full" />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full space-y-6">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full min-w-0 space-y-4 sm:space-y-6">
         {/* Main Hero & Top Bento Grid Container */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 sm:gap-6">
           {/* ================================================== */}
           {/* 1. HERO / INTRO BENTO CARD (Span 8 Cols Desktop)  */}
           {/* ================================================== */}
@@ -62,63 +62,63 @@ export default function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="lg:col-span-8 bento-card bento-card-hover p-6 sm:p-8 flex flex-col justify-between relative overflow-hidden group border border-purple-500/20 bg-gradient-to-br from-slate-900/90 via-slate-900/70 to-purple-950/20"
+            className="lg:col-span-8 bento-card bento-card-hover p-5 sm:p-8 flex flex-col justify-between relative overflow-hidden group border border-purple-500/20 bg-gradient-to-br from-slate-900/90 via-slate-900/70 to-purple-950/20 w-full min-w-0"
           >
             {/* Subtle background glow effect */}
-            <div className="absolute top-0 right-0 w-64 h-64 bg-purple-500/10 rounded-full blur-3xl pointer-events-none group-hover:bg-purple-500/20 transition-all duration-500" />
+            <div className="absolute top-0 right-0 w-64 h-64 bg-purple-500/10 rounded-full blur-3xl pointer-events-none group-hover:bg-purple-500/20 transition-all duration-500 max-w-full" />
             
-            <div className="space-y-6 relative z-10">
+            <div className="space-y-4 sm:space-y-6 relative z-10 w-full min-w-0">
               {/* Badge Status */}
-              <div className="flex flex-wrap items-center justify-between gap-3">
-                <div className="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-purple-500/10 border border-purple-500/30 text-purple-300 text-xs font-mono font-semibold tracking-wide uppercase shadow-[0_0_15px_rgba(168,85,247,0.15)]">
-                  <span className="relative flex h-2 w-2">
+              <div className="flex flex-col min-[420px]:flex-row items-start min-[420px]:items-center justify-between gap-2.5 w-full min-w-0">
+                <div className="inline-flex items-center space-x-2 px-2.5 sm:px-3.5 py-1.5 rounded-full bg-purple-500/10 border border-purple-500/30 text-purple-300 text-[10px] min-[380px]:text-[11px] sm:text-xs font-mono font-semibold tracking-wide uppercase shadow-[0_0_15px_rgba(168,85,247,0.15)] max-w-full">
+                  <span className="relative flex h-2 w-2 shrink-0">
                     <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-purple-400 opacity-75"></span>
                     <span className="relative inline-flex rounded-full h-2 w-2 bg-purple-400"></span>
                   </span>
-                  <span>{personal.badgeText}</span>
+                  <span className="break-words sm:truncate leading-tight">{personal.badgeText}</span>
                 </div>
 
-                <div className="text-xs font-mono text-cyan-400/80 bg-cyan-500/10 px-3 py-1 rounded-full border border-cyan-500/20">
+                <div className="text-[10px] sm:text-xs font-mono text-cyan-400/90 bg-cyan-500/10 px-2.5 sm:px-3 py-1 rounded-full border border-cyan-500/20 shrink-0">
                   Java Full Stack
                 </div>
               </div>
 
               {/* Tag & Large Name Header */}
-              <div className="space-y-2 text-left">
+              <div className="space-y-1.5 sm:space-y-2 text-left">
                 <div className="text-xs sm:text-sm font-mono text-purple-400 font-bold tracking-wider flex items-center space-x-1">
                   <span>&lt; Developer /&gt;</span>
                 </div>
-                <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight leading-none uppercase">
+                <h1 className="hero-clamp-title text-3xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight leading-none uppercase">
                   MAYUR<br />
                   <span className="text-gradient-purple-cyan">GAIKWAD</span>
                 </h1>
-                <h2 className="text-xl sm:text-2xl font-bold text-slate-200">
+                <h2 className="text-lg sm:text-2xl font-bold text-slate-200">
                   {personal.gradientRole}
                 </h2>
               </div>
 
               {/* Bio Summary */}
-              <p className="text-slate-300 text-sm sm:text-base max-w-2xl leading-relaxed text-left">
+              <p className="text-slate-300 text-xs sm:text-sm md:text-base max-w-2xl leading-relaxed text-left">
                 {personal.heroText}
               </p>
 
               {/* Highlight Tech Pills */}
-              <div className="flex flex-wrap items-center gap-2 pt-1 font-mono text-xs text-purple-300">
-                <span className="px-3 py-1 rounded-lg bg-purple-950/60 border border-purple-500/30 font-semibold">Java</span>
+              <div className="flex flex-wrap items-center gap-1.5 sm:gap-2 pt-1 font-mono text-[11px] sm:text-xs text-purple-300">
+                <span className="px-2.5 sm:px-3 py-1 rounded-lg bg-purple-950/60 border border-purple-500/30 font-semibold">Java</span>
                 <span className="text-purple-500">•</span>
-                <span className="px-3 py-1 rounded-lg bg-cyan-950/60 border border-cyan-500/30 font-semibold text-cyan-300">Spring Boot</span>
+                <span className="px-2.5 sm:px-3 py-1 rounded-lg bg-cyan-950/60 border border-cyan-500/30 font-semibold text-cyan-300">Spring Boot</span>
                 <span className="text-purple-500">•</span>
-                <span className="px-3 py-1 rounded-lg bg-blue-950/60 border border-blue-500/30 font-semibold text-blue-300">REST APIs</span>
+                <span className="px-2.5 sm:px-3 py-1 rounded-lg bg-blue-950/60 border border-blue-500/30 font-semibold text-blue-300">REST APIs</span>
                 <span className="text-purple-500">•</span>
-                <span className="px-3 py-1 rounded-lg bg-indigo-950/60 border border-indigo-500/30 font-semibold text-indigo-300">SQL</span>
+                <span className="px-2.5 sm:px-3 py-1 rounded-lg bg-indigo-950/60 border border-indigo-500/30 font-semibold text-indigo-300">SQL</span>
               </div>
             </div>
 
             {/* Action Buttons */}
-            <div className="flex flex-wrap items-center gap-3 pt-6 relative z-10">
+            <div className="flex flex-col sm:flex-row flex-wrap items-stretch sm:items-center gap-3 pt-6 relative z-10">
               <a
                 href="#projects"
-                className="inline-flex items-center px-5 py-2.5 rounded-xl font-semibold text-xs sm:text-sm text-white bg-gradient-to-r from-purple-600 via-indigo-600 to-cyan-500 hover:from-purple-500 hover:to-cyan-400 transition-all duration-300 shadow-lg shadow-purple-500/25 hover:shadow-purple-500/40 hover:scale-[1.02]"
+                className="inline-flex items-center justify-center px-5 py-3 rounded-xl font-semibold text-xs sm:text-sm text-white bg-gradient-to-r from-purple-600 via-indigo-600 to-cyan-500 hover:from-purple-500 hover:to-cyan-400 transition-all duration-300 shadow-lg shadow-purple-500/25 hover:shadow-purple-500/40 min-h-[44px]"
               >
                 View Projects
                 <ArrowRight className="w-4 h-4 ml-2" />
@@ -126,7 +126,7 @@ export default function Hero() {
 
               <a
                 href="#contact"
-                className="inline-flex items-center px-5 py-2.5 rounded-xl font-semibold text-xs sm:text-sm text-slate-200 bg-slate-900/80 hover:bg-slate-800 hover:text-white border border-slate-700/80 transition-all duration-300 hover:scale-[1.02]"
+                className="inline-flex items-center justify-center px-5 py-3 rounded-xl font-semibold text-xs sm:text-sm text-slate-200 bg-slate-900/80 hover:bg-slate-800 hover:text-white border border-slate-700/80 transition-all duration-300 min-h-[44px]"
               >
                 <Mail className="w-4 h-4 mr-2 text-cyan-400" />
                 Contact Me
@@ -137,7 +137,7 @@ export default function Hero() {
                 download="Mayur_Gaikwad_Resume.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center px-4 py-2.5 rounded-xl font-medium text-xs text-slate-300 hover:text-purple-300 border border-purple-500/20 hover:border-purple-500/50 hover:bg-purple-500/10 transition-all duration-300"
+                className="inline-flex items-center justify-center px-4 py-3 rounded-xl font-medium text-xs text-slate-300 hover:text-purple-300 border border-purple-500/20 hover:border-purple-500/50 hover:bg-purple-500/10 transition-all duration-300 min-h-[44px]"
               >
                 <FileDown className="w-4 h-4 mr-2" />
                 Resume PDF
@@ -210,7 +210,7 @@ export default function Hero() {
         </div>
 
         {/* Second Row Bento Grid: Social Cards + Currently Learning */}
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-3 sm:gap-6">
           {/* ================================================== */}
           {/* 3. SOCIAL CARDS (GitHub, LinkedIn, LeetCode - 3x4 Cols) */}
           {/* ================================================== */}
@@ -288,7 +288,7 @@ export default function Hero() {
         </div>
 
         {/* Third Row Bento Grid: Tech Stack Highlights + Currently Learning */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 sm:gap-6">
           {/* ================================================== */}
           {/* 4. TECH STACK BENTO CARD (Span 7 Cols Desktop)     */}
           {/* ================================================== */}
